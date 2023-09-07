@@ -4,6 +4,7 @@ grid-template-columns: 1fr;
 grid-template-rows: repeat(2, 1fr);
 grid-column-gap: 0px;
 grid-row-gap: 0px;
+justify-items: center;
 }
 
 .expense-tracker {
@@ -12,6 +13,7 @@ grid-row-gap: 0px;
   grid-template-rows: 1fr;
   grid-column-gap: 0px;
   grid-row-gap: 0px;
+  column-gap: 55px;
 }
 
 .expense-tracker h1 {
@@ -26,15 +28,25 @@ grid-row-gap: 0px;
   font-size: 16px;
   border: 2px solid darkgray;
 }
+
+.container {
+  display: grid;
+    justify-items: center;
+}
+
 .profile {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-left: 200px;
+  row-gap: 23px;
+  min-width: 200px;
+
 }
 .profile-photo {
-  width: 200px;
+  width: 85px;
   border-radius: 50%;
+  border: 2px solid white;
+
 }
 
 .sign-out-button {
@@ -60,13 +72,42 @@ grid-row-gap: 0px;
 }
 
 .transactions {
-  margin-left: 430px;
   margin-top: 20px;
   padding-left: 10px;
   width: 600px;
-  height: 400px;
+  height: 300px;
   overflow: auto;
-  border: 3px solid #023047;
+  border: 3px solid #e6abff;
+  border-radius: 9px;
+}
+
+#style-4::-webkit-scrollbar-track
+{
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+	background-color: #F5F5F5;
+}
+
+#style-4::-webkit-scrollbar
+{
+	width: 10px;
+	background-color: #F5F5F5;
+}
+
+#style-4::-webkit-scrollbar-thumb
+{
+	background-color: #000000;
+	border: 2px solid #555555;
+}
+
+.transactions-heading {
+  text-align: center;
+}
+
+.list-of-transactions {
+  display: grid;
+    justify-items: start;
+    grid-template-columns: repeat(2, 1fr);
+    width: 100%;
 }
 
 .total-amounts {
@@ -75,6 +116,8 @@ grid-template-columns: repeat(3, 1fr);
 grid-template-rows: 0.3fr;
 grid-column-gap: 0px;
 grid-row-gap: 0px;
+justify-items: center;
+align-items: start;
 }
 
 .amount {
@@ -84,6 +127,7 @@ grid-row-gap: 0px;
   font-size: 16px;
   color: #555;
   outline: none;
+  margin-right: 26px;
 }
 
 .amount:focus {
@@ -163,7 +207,7 @@ label {
 }
 /* hover effect on button width */
 .Btn:hover {
-  width: 125px;
+  width: 198px;
   border-radius: 40px;
   transition-duration: .3s;
 }

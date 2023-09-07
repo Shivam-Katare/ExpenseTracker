@@ -128,17 +128,17 @@ export const ExpenseTracker = () => {
       </div>
 
       {/* ------------------------------------------------- */}
-      <div className="transactions">
-        <h3> Transactions</h3>
+      <div className="transactions" id="style-4">
+        <h3 className="transactions-heading">All Your Transactions</h3>
         <ul>
           {transactions.map((transaction) => {
             const { description, transactionAmount, transactionType } =
               transaction;
             return (
-              <li>
+              <li className="list-of-transactions">
                 <h4> {description} </h4>
                 <p>
-                  ${transactionAmount} •{" "}
+                  ${transactionAmount} ➡{" "}
                   <label
                     style={{
                       color: transactionType === "expense" ? "red" : "green",
