@@ -9,15 +9,19 @@ export const Auth = () => {
   const { isAuth } = useGetUserInfo();
 
   const signInWithGoogle = async () => {
-    const results = await signInWithPopup(auth, provider);
-    const authInfo = {
-      userID: results.user.uid,
-      name: results.user.displayName,
-      profilePhoto: results.user.photoURL,
-      isAuth: true,
-    };
-    localStorage.setItem("auth", JSON.stringify(authInfo));
-    navigate("/expense-tracker");
+    try {
+      const results = await signInWithPopup(auth, provider);
+      const authInfo = {
+        userID: results.user.uid,
+        name: results.user.displayName,
+        profilePhoto: results.user.photoURL,
+        isAuth: true,
+      };
+      localStorage.setItem("auth", JSON.stringify(authInfo));
+      navigate("/expense-tracker");
+    } catch (error) {
+      console.error();
+    }
   };
 
   if (isAuth) {

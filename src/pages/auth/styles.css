@@ -10,13 +10,12 @@
   color: white;
   text-shadow: -1px 2px 6px rgba(2, 48, 71, 0.54);
   background: rgb(0, 204, 255);
-  background: linear-gradient(
-    90deg,
-    rgb(22, 26, 27) 0%,
-    rgb(36, 6, 73) 100%
-  );
+  background: linear-gradient(90deg,
+      rgb(22, 26, 27) 0%,
+      rgb(36, 6, 73) 100%);
   font-family: 'Overpass', sans-serif;
 }
+
 /* #219ebc */
 
 .login-page p {
@@ -48,20 +47,38 @@
   background-repeat: no-repeat;
   background-position: 12px 11px;
 }
+
 .login-with-google-btn:hover {
   box-shadow: 0 -1px 0 rgba(0, 0, 0, 0.04), 0 2px 4px rgba(0, 0, 0, 0.25);
 }
+
 .login-with-google-btn:active {
   background-color: #eeeeee;
 }
+
 .login-with-google-btn:focus {
   outline: none;
   box-shadow: 0 -1px 0 rgba(0, 0, 0, 0.04), 0 2px 4px rgba(0, 0, 0, 0.25),
     0 0 0 3px #c8dafc;
 }
+
 .login-with-google-btn:disabled {
   filter: grayscale(100%);
   background-color: #ebebeb;
   box-shadow: 0 -1px 0 rgba(0, 0, 0, 0.04), 0 1px 1px rgba(0, 0, 0, 0.25);
   cursor: not-allowed;
+}
+
+@media(max-width: 540px) {
+  .login-with-google-btn {
+    font-size: 15px;
+  }
+
+  .login-page p {
+    font-size: 28px;
+  }
+
+  .login-page p span {
+    font-size: 56px;
+  }
 }

@@ -38,7 +38,7 @@ export const ExpenseTracker = () => {
       localStorage.clear();
       navigate("/");
     } catch (err) {
-      console.error(err);
+      console.error();
     }
   };
 
@@ -51,62 +51,63 @@ export const ExpenseTracker = () => {
           <div className="total-amounts">
             <div className="balance">
               <h3> Your Balance</h3>
-              {balance >= 0 ? <h2> ${balance}</h2> : <h2> -${balance * -1}</h2>}
+              {balance >= 0 ? <h2> Rs {balance}</h2> : <h2> -Rs {balance * -1}</h2>}
             </div>
             <div className="income">
               <h4> Income</h4>
-              <p>${income}</p>
+              <p>Rs {income}</p>
             </div>
             <div className="expenses">
               <h4> Expenses</h4>
-              <p>${expenses}</p>
+              <p>Rs {expenses}</p>
             </div>
           </div>
 
           <form className="add-transaction" onSubmit={onSubmit}>
-            <input
-              type="text"
-              placeholder="Description"
-              className="amount"
-              value={description}
-              required
-              onChange={(e) => setDescription(e.target.value)}
-            />
-            <input
-              placeholder="Amount"
-              type="number"
-              value={transactionAmount}
-              required
-              className="amount"
-              onChange={(e) => setTransactionAmount(e.target.value)}
-            />
-
+            <div className="all-inputs">
+              <input
+                type="text"
+                placeholder="Short title"
+                className="amount"
+                value={description}
+                required
+                onChange={(e) => setDescription(e.target.value)}
+              />
+              <input
+                placeholder="Amount"
+                type="number"
+                value={transactionAmount}
+                required
+                className="amount"
+                onChange={(e) => setTransactionAmount(e.target.value)}
+              />
+            </div>
             <div className="total-calculation-container">
               <div className="radio-input">
                 <div>
                   <input
-                  type="radio"
-                  id="expense"
-                  value="expense"
-                  checked={transactionType === "expense"}
-                  onChange={(e) => setTransactionType(e.target.value)}
-                  className="value"
-                  placeholder="Expense"
-                />
-                <label htmlFor="expense" className="value"> Expense</label>
+                    type="radio"
+                    id="expense"
+                    value="expense"
+                    checked={transactionType === "expense"}
+                    onChange={(e) => setTransactionType(e.target.value)}
+                    className="value"
+                    placeholder="Expense"
+                  />
+                  <label htmlFor="expense" className="value"> Expense</label>
                 </div>
-                
+
                 <div>
-                <input
-                  type="radio"
-                  id="income"
-                  value="income"
-                  checked={transactionType === "income"}
-                  onChange={(e) => setTransactionType(e.target.value)}
-                  className="value"
-                  placeholder="Income"
-                />
-                <label htmlFor="income" className="value"> Income</label>
+                  <input
+                    type="radio"
+                    id="income"
+                    value="income"
+                    checked={transactionType === "income"}
+                    onChange={(e) => setTransactionType(e.target.value)}
+                    className="value"
+                    placeholder="Income"
+                  />
+                  <label htmlFor="income" className="value"> Income</label>
                 </div>
               </div>
 
@@ -119,9 +120,8 @@ export const ExpenseTracker = () => {
           <div className="profile">
             {" "}
             <img className="profile-photo" src={profilePhoto} />
-            <button class="Btn">
-              <div className="sign" onClick={signUserOut}><svg viewBox="0 0 512 512"><path d="M377.9 105.9L500.7 228.7c7.2 7.2 11.3 17.1 11.3 27.3s-4.1 20.1-11.3 27.3L377.9 406.1c-6.4 6.4-15 9.9-24 9.9c-18.7 0-33.9-15.2-33.9-33.9l0-62.1-128 0c-17.7 0-32-14.3-32-32l0-64c0-17.7 14.3-32 32-32l128 0 0-62.1c0-18.7 15.2-33.9 33.9-33.9c9 0 17.6 3.6 24 9.9zM160 96L96 96c-17.7 0-32 14.3-32 32l0 256c0 17.7 14.3 32 32 32l64 0c17.7 0 32 14.3 32 32s-14.3 32-32 32l-64 0c-53 0-96-43-96-96L0 128C0 75 43 32 96 32l64 0c17.7 0 32 14.3 32 32s-14.3 32-32 32z"></path></svg></div>
-              <div class="text">Sign out</div>
+            <button class="sign-out-button" onClick={signUserOut}>
+              Sign out
             </button>
           </div>
         )}
@@ -138,7 +138,7 @@ export const ExpenseTracker = () => {
               <li className="list-of-transactions">
                 <h4> {description} </h4>
                 <p>
-                  ${transactionAmount} ➡{" "}
+                  Rs {transactionAmount} ➡{" "}
                   <label
                     style={{
                       color: transactionType === "expense" ? "red" : "green",
